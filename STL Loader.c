@@ -8,7 +8,7 @@ typedef struct
 } Description;
 
 
-typedef struct __attribute__((packed, aligned(1))) Description 
+typedef struct
 {
 	float Normal[3];
 	float Vertex1[3];
@@ -31,7 +31,7 @@ int main()
 	
 	for (unsigned int i = 0; i < Desc.Triangles; i++)
 	{
-		fread(&VertexArray[i], sizeof(Vertex), 1, File);
+		fread(&VertexArray[i], 50, 1, File);
 		printf("Normal: %f %f %f\n", VertexArray[i].Normal[0], VertexArray[i].Normal[1], VertexArray[i].Normal[2]);
 		printf("Vertex1: %f %f %f\n", VertexArray[i].Vertex1[0], VertexArray[i].Vertex1[1], VertexArray[i].Vertex1[2]);
 		printf("Vertex2: %f %f %f\n", VertexArray[i].Vertex2[0], VertexArray[i].Vertex2[1], VertexArray[i].Vertex2[2]);
